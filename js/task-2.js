@@ -25,17 +25,16 @@ const images = [
   }
 ];
 
-const galleryList = document.querySelector('.gallery');
 
-images.forEach((image) => {
-  const listItem = document.createElement('li');
-  const imageElement = document.createElement('img');
-  
-  imageElement.src = image.url;
-  imageElement.alt = image.alt;
-  
-  listItem.appendChild(imageElement);
-  galleryList.appendChild(listItem);
+const gallery = document.querySelector(".gallery");
+
+const imageElements = images.map((image) => {
+  const listItem = document.createElement("li");
+  const img = document.createElement("img");
+  img.src = image.url;
+  img.alt = image.alt;
+  listItem.appendChild(img);
+  return listItem;
 });
 
-galleryList.classList.add('gallery-flexbox');
+gallery.append(...imageElements);
